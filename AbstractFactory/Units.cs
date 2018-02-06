@@ -33,33 +33,21 @@ namespace AbstractFactory
 
     class Grunt : Warrior
     {
-        public override string ToString()
-        {
-            return "Orc Grunt (Warrior)";
-        }
+        public override string ToString() => "Orc Grunt (Warrior)";
     }
 
     class Footman : Warrior
     {
-        public override string ToString()
-        {
-            return "Human Footman (Warrior)";
-        }
+        public override string ToString() => "Human Footman (Warrior)";
     }
 
     class Archer : Ranger
     {
-        public override string ToString()
-        {
-            return "Human Archer (Ranger)";
-        }
+        public override string ToString() => "Human Archer (Ranger)";
     }
 
     class Axethrowher : Ranger
     {
-        public override string ToString()
-        {
-            return "Orc Axethrowher (Ranger)";
-        }
+        public override string ToString() => "Orc Axethrowher (Ranger)";
     }
 }

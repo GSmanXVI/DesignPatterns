@@ -1,0 +1,6 @@
+C:\Users\gspos\Source\Repos\DesignPatterns\Builder\bin\Debug\Builder.exe.config
+C:\Users\gspos\Source\Repos\DesignPatterns\Builder\bin\Debug\Builder.exe
+C:\Users\gspos\Source\Repos\DesignPatterns\Builder\bin\Debug\Builder.pdb
+C:\Users\gspos\Source\Repos\DesignPatterns\Builder\obj\Debug\Builder.csproj.CoreCompileInputs.cache
+C:\Users\gspos\Source\Repos\DesignPatterns\Builder\obj\Debug\Builder.exe
+C:\Users\gspos\Source\Repos\DesignPatterns\Builder\obj\Debug\Builder.pdb
