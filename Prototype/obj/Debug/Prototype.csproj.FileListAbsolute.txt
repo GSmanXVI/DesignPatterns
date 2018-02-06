@@ -1,0 +1,7 @@
+C:\Users\gspos\Source\Repos\DesignPatterns\Prototype\bin\Debug\Prototype.exe.config
+C:\Users\gspos\Source\Repos\DesignPatterns\Prototype\bin\Debug\Prototype.exe
+C:\Users\gspos\Source\Repos\DesignPatterns\Prototype\bin\Debug\Prototype.pdb
+C:\Users\gspos\Source\Repos\DesignPatterns\Prototype\obj\Debug\Prototype.csprojResolveAssemblyReference.cache
+C:\Users\gspos\Source\Repos\DesignPatterns\Prototype\obj\Debug\Prototype.csproj.CoreCompileInputs.cache
+C:\Users\gspos\Source\Repos\DesignPatterns\Prototype\obj\Debug\Prototype.exe
+C:\Users\gspos\Source\Repos\DesignPatterns\Prototype\obj\Debug\Prototype.pdb
