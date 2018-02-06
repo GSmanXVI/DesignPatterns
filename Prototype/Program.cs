@@ -24,7 +24,6 @@ namespace Prototype
 
         public void Info()
         {
-            Console.WriteLine("-----------------------");
             Console.WriteLine($"Name: {Name}");
             Console.WriteLine("\nStats: ");
             Console.WriteLine($"Health points: {HP}");
@@ -32,7 +31,6 @@ namespace Prototype
             Console.WriteLine($"Strength: {Strength}");
             Console.WriteLine($"Dexterity: {Dexterity}");
             Console.WriteLine($"Intellect: {Intellect}");
-            Console.WriteLine("-----------------------\n");
         }
     }
 
@@ -94,7 +92,7 @@ namespace Prototype
                 Enum.TryParse(Console.ReadKey().KeyChar.ToString(), out Class classChoise);
                 try
                 {
-                    character = characterManager[classChoise];
+                    character = characterManager[classChoise].Clone() as Character;
                     Console.Clear();
                     break;
                 }
@@ -122,7 +120,7 @@ namespace Prototype
             {
                 Console.Clear();
                 character.Info();
-                Console.WriteLine($"You have {additionalPoints} additional points!");
+                Console.WriteLine($"\nYou have {additionalPoints} additional points!");
                 Console.Write("Choose stat to improve (1 - STR, 2 - DEX, 3 - INT): ");
                 Int32.TryParse(Console.ReadKey().KeyChar.ToString(), out int skillChoise);
                 switch (skillChoise)
