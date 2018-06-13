@@ -5,3 +5,10 @@ C:\Users\gspos\Source\Repos\DesignPatterns\Builder\obj\Debug\Builder.csproj.Core
 C:\Users\gspos\Source\Repos\DesignPatterns\Builder\obj\Debug\Builder.exe
 C:\Users\gspos\Source\Repos\DesignPatterns\Builder\obj\Debug\Builder.pdb
 C:\Users\gspos\Source\Repos\DesignPatterns\Builder\obj\Debug\Builder.csprojResolveAssemblyReference.cache
+C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\bin\Debug\Builder.exe.config
+C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\bin\Debug\Builder.exe
+C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\bin\Debug\Builder.pdb
+C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\obj\Debug\Builder.csprojAssemblyReference.cache
+C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\obj\Debug\Builder.csproj.CoreCompileInputs.cache
+C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\obj\Debug\Builder.exe
+C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\obj\Debug\Builder.pdb

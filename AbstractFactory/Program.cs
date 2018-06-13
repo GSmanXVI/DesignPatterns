@@ -51,6 +51,8 @@ namespace AbstractFactory
             {
                 Console.WriteLine(item);
             }
+
+            Console.ReadLine();
         }
     }
 }

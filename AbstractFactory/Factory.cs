@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AbstractFactory
 {
-    interface IUnitFactory
+    public interface IUnitFactory
     {
         Warrior CreateWarrior();
         Ranger CreateRanger();

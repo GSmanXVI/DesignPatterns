@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace AbstractFactory
 {
-    abstract class Unit
+    public abstract class Unit
     {
         public int HP { get; set; }
         public int Damage { get; set; }
         abstract public void Attack(Unit target);
     }
 
-    abstract class Warrior : Unit
+    public abstract class Warrior : Unit
     {
         public override void Attack(Unit target)
         {
@@ -22,7 +22,7 @@ namespace AbstractFactory
         }
     }
 
-    abstract class Ranger : Unit
+    public abstract class Ranger : Unit
     {
         public override void Attack(Unit target)
         {
