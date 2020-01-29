@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace FactoryMethod
 {
-    interface IWizzardCreartor
+    interface IWizzardFactory
     {
-        Wizzard FactoryMethod();
+        Wizzard Create();
     }
 
-    class HealerCreator : IWizzardCreartor
+    class HealerFactory : IWizzardFactory
     {
-        public Wizzard FactoryMethod()
+        public Wizzard Create()
         {
             Wizzard wizzard = new Healer();
             wizzard.Spells.Add(new Heal());
@@ -23,9 +23,9 @@ namespace FactoryMethod
         }
     }
 
-    class WarlockCreator : IWizzardCreartor
+    class WarlockFactory : IWizzardFactory
     {
-        public Wizzard FactoryMethod()
+        public Wizzard Create()
         {
             Wizzard wizzard = new Warlock();
             wizzard.Spells.Add(new Fireball());

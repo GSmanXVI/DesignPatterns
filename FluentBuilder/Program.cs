@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Builder
+namespace FluentBuilder
 {
     class Player
-    {   
+    {
         ////BAD CODE! Too many params in constructor.
         //public Player(string name, Weapon rightHand, Weapon leftHand, Armor head, Armor chest, Armor legs)
         //{
@@ -44,16 +44,49 @@ namespace Builder
         }
     }
 
-    class CharacterCreator
+
+    //Fluent builder patern
+    class PlayerBuilder
     {
-        public Player Create(PlayerBuilder playerBuilder)
+        private Player player = new Player();
+        public PlayerBuilder(string playerName)
         {
-            playerBuilder.EquipRightHand();
-            playerBuilder.EquipLeftHand();
-            playerBuilder.EquipHead();
-            playerBuilder.EquipChest();
-            playerBuilder.EquipLegs();
-            return playerBuilder.Build();
+            player.Name = playerName;
+        }
+
+        public PlayerBuilder EquipRightHand(Weapon weapon)
+        {
+            player.RightHand = weapon;
+            return this;
+        }
+
+        public PlayerBuilder EquipLeftHand(Weapon weapon)
+        {
+            player.LeftHand = weapon;
+            return this;
+        }
+
+        public PlayerBuilder EquipHead(Armor armor)
+        {
+            player.Head = armor;
+            return this;
+        }
+
+        public PlayerBuilder EquipChest(Armor armor)
+        {
+            player.Chest = armor;
+            return this;
+        }
+
+        public PlayerBuilder EquipLegs(Armor armor)
+        {
+            player.Legs = armor;
+            return this;
+        }
+
+        public Player Build()
+        {
+            return player;
         }
     }
 
@@ -61,30 +94,14 @@ namespace Builder
     {
         static void Main(string[] args)
         {
-            //// GOOD CODE
-            WarriorBuilder warriorBuilder = new WarriorBuilder();
-            ArcherBuilder archerBuilder = new ArcherBuilder();
-            BerserkerBuilder berserkerBuilder = new BerserkerBuilder();
-            HomelessBuilder homelessBuilder = new HomelessBuilder();
+            Player player = new PlayerBuilder("Gleb")
+                .EquipLegs(new LeatherArmor())
+                .EquipHead(new ClothArmor())
+                .EquipRightHand(new Sword())
+                .EquipLeftHand(new Shield())
+                .Build();
 
-            CharacterCreator characterCreator = new CharacterCreator();
-
-            Player player1 = characterCreator.Create(warriorBuilder);
-            player1.Name = "Warrior";
-            player1.Info();
-
-            Player player2 = characterCreator.Create(archerBuilder);
-            player2.Name = "Archer";
-            player2.Info();
-
-            Player player3 = characterCreator.Create(berserkerBuilder);
-            player3.Name = "Berserker";
-            player3.Info();
-
-            Player player4 = characterCreator.Create(homelessBuilder);
-            player4.Name = "Homeless";
-            player4.Info();
-
+            player.Info();
 
 
             //// BAD CODE

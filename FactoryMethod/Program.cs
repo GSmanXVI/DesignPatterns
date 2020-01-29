@@ -10,16 +10,45 @@ namespace FactoryMethod
     {
         static void Main(string[] args)
         {
-            IWizzardCreartor[] creators = new IWizzardCreartor[2];
-            creators[0] = new HealerCreator();
-            creators[1] = new WarlockCreator();
+            ////GOOD CODE
+            Random rand = new Random();
+            List<Wizzard> wizzards = new List<Wizzard>();
 
-            foreach (IWizzardCreartor creator in creators)
+            List<IWizzardFactory> wizzardCreartors = new List<IWizzardFactory>();
+            wizzardCreartors.Add(new HealerFactory());
+            wizzardCreartors.Add(new WarlockFactory());
+
+            for (int i = 0; i < 10; i++)
             {
-                Wizzard wizzard = creator.FactoryMethod();
-                Console.WriteLine($"Created {wizzard.GetType().Name}");
-                wizzard.Info();
+                int randCreatorIndex = rand.Next(0, wizzardCreartors.Count);
+                Wizzard wizzard = wizzardCreartors[randCreatorIndex].Create();
+                wizzards.Add(wizzard);
             }
+
+            foreach (var item in wizzards)
+            {
+                Console.WriteLine(item.GetType().Name);
+            }
+
+
+
+
+            //////BAD CODE
+            //Random rand = new Random();
+            //List<Wizzard> wizzards = new List<Wizzard>();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    int randNumber = rand.Next(0, 2);
+            //    if (randNumber == 0)
+            //        wizzards.Add(new Healer());
+            //    else if (randNumber == 1)
+            //        wizzards.Add(new Warlock());
+            //}
+
+            //foreach (var item in wizzards)
+            //{
+            //    Console.WriteLine(item.GetType().Name);
+            //}
         }
     }
 }

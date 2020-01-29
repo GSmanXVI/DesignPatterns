@@ -11,3 +11,9 @@ C:\Users\gspos\Documents\Projects\DesignPatterns\FactoryMethod\obj\Debug\Factory
 C:\Users\gspos\Documents\Projects\DesignPatterns\FactoryMethod\obj\Debug\FactoryMethod.csproj.CoreCompileInputs.cache
 C:\Users\gspos\Documents\Projects\DesignPatterns\FactoryMethod\obj\Debug\FactoryMethod.exe
 C:\Users\gspos\Documents\Projects\DesignPatterns\FactoryMethod\obj\Debug\FactoryMethod.pdb
+C:\Users\XPS\Desktop\Projects\DesignPatterns\FactoryMethod\bin\Debug\FactoryMethod.exe.config
+C:\Users\XPS\Desktop\Projects\DesignPatterns\FactoryMethod\bin\Debug\FactoryMethod.exe
+C:\Users\XPS\Desktop\Projects\DesignPatterns\FactoryMethod\bin\Debug\FactoryMethod.pdb
+C:\Users\XPS\Desktop\Projects\DesignPatterns\FactoryMethod\obj\Debug\FactoryMethod.csprojAssemblyReference.cache
+C:\Users\XPS\Desktop\Projects\DesignPatterns\FactoryMethod\obj\Debug\FactoryMethod.exe
+C:\Users\XPS\Desktop\Projects\DesignPatterns\FactoryMethod\obj\Debug\FactoryMethod.pdb

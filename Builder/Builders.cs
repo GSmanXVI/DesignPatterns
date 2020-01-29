@@ -8,11 +8,11 @@ namespace Builder
 {
     abstract class PlayerBuilder
     {
-        public Player Player { get; protected set; }
+        protected Player player;
 
         public PlayerBuilder()
         {
-            Player = new Player();
+            player = new Player();
         }
 
         public abstract void EquipRightHand();
@@ -20,33 +20,38 @@ namespace Builder
         public abstract void EquipHead();
         public abstract void EquipChest();
         public abstract void EquipLegs();
+
+        public Player Build()
+        {
+            return player;
+        }
     }
 
     class WarriorBuilder : PlayerBuilder
     {
         public override void EquipRightHand()
         {
-            Player.RightHand = new Sword();
+            player.RightHand = new Sword();
         }
 
         public override void EquipLeftHand()
         {
-            Player.LeftHand = new Shield();
+            player.LeftHand = new Shield();
         }
 
         public override void EquipHead()
         {
-            Player.Head = new PlateArmor();
+            player.Head = new PlateArmor();
         }
 
         public override void EquipChest()
         {
-            Player.Chest = new PlateArmor();
+            player.Chest = new PlateArmor();
         }
 
         public override void EquipLegs()
         {
-            Player.Legs = new PlateArmor();
+            player.Legs = new PlateArmor();
         }
     }
 
@@ -54,27 +59,27 @@ namespace Builder
     {
         public override void EquipRightHand()
         {
-            Player.RightHand = new Bow();
+            player.RightHand = new Bow();
         }
 
         public override void EquipLeftHand()
         {
-            Player.LeftHand = null;
+            player.LeftHand = null;
         }
 
         public override void EquipHead()
         {
-            Player.Head = new LeatherArmor();
+            player.Head = new LeatherArmor();
         }
 
         public override void EquipChest()
         {
-            Player.Chest = new LeatherArmor();
+            player.Chest = new LeatherArmor();
         }
 
         public override void EquipLegs()
         {
-            Player.Legs = new LeatherArmor();
+            player.Legs = new LeatherArmor();
         }
     }
 
@@ -82,27 +87,27 @@ namespace Builder
     {
         public override void EquipRightHand()
         {
-            Player.RightHand = new Sword();
+            player.RightHand = new Sword();
         }
 
         public override void EquipLeftHand()
         {
-            Player.LeftHand = new Sword();
+            player.LeftHand = new Sword();
         }
 
         public override void EquipHead()
         {
-            Player.Head = new LeatherArmor();
+            player.Head = new LeatherArmor();
         }
 
         public override void EquipChest()
         {
-            Player.Chest = new LeatherArmor();
+            player.Chest = new LeatherArmor();
         }
 
         public override void EquipLegs()
         {
-            Player.Legs = new LeatherArmor();
+            player.Legs = new LeatherArmor();
         }
     }
 
@@ -110,27 +115,27 @@ namespace Builder
     {
         public override void EquipRightHand()
         {
-            Player.RightHand = null;
+            player.RightHand = null;
         }
 
         public override void EquipLeftHand()
         {
-            Player.LeftHand = null;
+            player.LeftHand = null;
         }
 
         public override void EquipHead()
         {
-            Player.Head = null;
+            player.Head = null;
         }
 
         public override void EquipChest()
         {
-            Player.Chest = new ClothArmor();
+            player.Chest = new ClothArmor();
         }
 
         public override void EquipLegs()
         {
-            Player.Legs = new ClothArmor();
+            player.Legs = new ClothArmor();
         }
     }
 }

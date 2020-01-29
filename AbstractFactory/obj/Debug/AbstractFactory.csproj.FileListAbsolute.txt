@@ -12,3 +12,9 @@ C:\Users\gspos\Documents\Projects\DesignPatterns\AbstractFactory\obj\Debug\Abstr
 C:\Users\gspos\Documents\Projects\DesignPatterns\AbstractFactory\obj\Debug\AbstractFactory.csproj.CoreCompileInputs.cache
 C:\Users\gspos\Documents\Projects\DesignPatterns\AbstractFactory\obj\Debug\AbstractFactory.exe
 C:\Users\gspos\Documents\Projects\DesignPatterns\AbstractFactory\obj\Debug\AbstractFactory.pdb
+C:\Users\XPS\Desktop\Projects\DesignPatterns\AbstractFactory\bin\Debug\AbstractFactory.exe.config
+C:\Users\XPS\Desktop\Projects\DesignPatterns\AbstractFactory\bin\Debug\AbstractFactory.exe
+C:\Users\XPS\Desktop\Projects\DesignPatterns\AbstractFactory\bin\Debug\AbstractFactory.pdb
+C:\Users\XPS\Desktop\Projects\DesignPatterns\AbstractFactory\obj\Debug\AbstractFactory.csprojAssemblyReference.cache
+C:\Users\XPS\Desktop\Projects\DesignPatterns\AbstractFactory\obj\Debug\AbstractFactory.exe
+C:\Users\XPS\Desktop\Projects\DesignPatterns\AbstractFactory\obj\Debug\AbstractFactory.pdb

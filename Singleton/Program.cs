@@ -8,7 +8,7 @@ namespace Singleton
 {
     class Singleton
     {
-        static private Singleton instance;
+        static private Singleton instance = null;
         static public Singleton Instance
         {
             get

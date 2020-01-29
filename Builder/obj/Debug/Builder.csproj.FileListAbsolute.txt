@@ -12,3 +12,9 @@ C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\obj\Debug\Builder.cspro
 C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\obj\Debug\Builder.csproj.CoreCompileInputs.cache
 C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\obj\Debug\Builder.exe
 C:\Users\gspos\Documents\Projects\DesignPatterns\Builder\obj\Debug\Builder.pdb
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Builder\bin\Debug\Builder.exe.config
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Builder\bin\Debug\Builder.exe
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Builder\bin\Debug\Builder.pdb
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Builder\obj\Debug\Builder.csprojAssemblyReference.cache
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Builder\obj\Debug\Builder.exe
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Builder\obj\Debug\Builder.pdb
