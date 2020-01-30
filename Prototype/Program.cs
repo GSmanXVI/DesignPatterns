@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Prototype
 {
-    enum Class { Warrior = 1, Thief, Mage }
+    enum CharacterClass { Warrior = 1, Thief, Mage }
 
     class Character : ICloneable
     {
@@ -19,7 +19,7 @@ namespace Prototype
 
         public object Clone()
         {
-            return MemberwiseClone();
+            return this.MemberwiseClone();
         }
 
         public void Info()
@@ -36,12 +36,12 @@ namespace Prototype
 
     class CharacterManager
     {
-        private Dictionary<Class, Character> presets;
+        private Dictionary<CharacterClass, Character> presets;
 
         public CharacterManager()
         {
-            presets = new Dictionary<Class, Character>();
-            presets.Add(Class.Warrior, new Character()
+            presets = new Dictionary<CharacterClass, Character>();
+            presets.Add(CharacterClass.Warrior, new Character()
             {
                 HP = 200,
                 MP = 0,
@@ -50,7 +50,7 @@ namespace Prototype
                 Intellect = 2
             });
 
-            presets.Add(Class.Thief, new Character()
+            presets.Add(CharacterClass.Thief, new Character()
             {
                 HP = 120,
                 MP = 50,
@@ -59,7 +59,7 @@ namespace Prototype
                 Intellect = 5
             });
 
-            presets.Add(Class.Mage, new Character()
+            presets.Add(CharacterClass.Mage, new Character()
             {
                 HP = 80,
                 MP = 120,
@@ -69,13 +69,10 @@ namespace Prototype
             });
         }
 
-        public Character this[Class cls]
+        public Character this[CharacterClass cls]
         {
-            get { return presets[cls]; }
-            set { presets.Add(cls, value); }
+            get { return presets[cls].Clone() as Character; }
         }
-
-
     }
 
     class Program
@@ -84,15 +81,14 @@ namespace Prototype
         {
             CharacterManager characterManager = new CharacterManager();
             Character character;
-
             
             while (true)
             {
                 Console.Write("Choose your class (1 - Warrior, 2 - Theif, 3 - Mage): ");
-                Enum.TryParse(Console.ReadKey().KeyChar.ToString(), out Class classChoise);
+                Enum.TryParse(Console.ReadKey().KeyChar.ToString(), out CharacterClass classChoise);
                 try
                 {
-                    character = characterManager[classChoise].Clone() as Character;
+                    character = characterManager[classChoise];
                     Console.Clear();
                     break;
                 }

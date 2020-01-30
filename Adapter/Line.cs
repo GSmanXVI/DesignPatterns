@@ -8,7 +8,7 @@ namespace Adapter
 {
     class Line
     {
-        public void Draw(int x1, int y1, int x2, int y2)
+        public void DrawLine(int x1, int y1, int x2, int y2)
         {
             Console.WriteLine("Line:");
             Console.WriteLine($"X1: {x1}; Y1: {y1}");

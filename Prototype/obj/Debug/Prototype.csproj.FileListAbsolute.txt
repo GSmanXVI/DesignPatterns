@@ -12,3 +12,9 @@ C:\Users\gspos\Documents\Projects\DesignPatterns\Prototype\obj\Debug\Prototype.c
 C:\Users\gspos\Documents\Projects\DesignPatterns\Prototype\obj\Debug\Prototype.csproj.CoreCompileInputs.cache
 C:\Users\gspos\Documents\Projects\DesignPatterns\Prototype\obj\Debug\Prototype.exe
 C:\Users\gspos\Documents\Projects\DesignPatterns\Prototype\obj\Debug\Prototype.pdb
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Prototype\bin\Debug\Prototype.exe.config
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Prototype\bin\Debug\Prototype.exe
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Prototype\bin\Debug\Prototype.pdb
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Prototype\obj\Debug\Prototype.csprojAssemblyReference.cache
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Prototype\obj\Debug\Prototype.exe
+C:\Users\XPS\Desktop\Projects\DesignPatterns\Prototype\obj\Debug\Prototype.pdb
