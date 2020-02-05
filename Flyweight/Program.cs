@@ -47,7 +47,7 @@ namespace Flyweight
 
     class MovieSearchAPI
     {
-        readonly string apiUrl = @"http://omdbapi.com/";
+        readonly string apiUrl = @"http://www.omdbapi.com/";
         readonly string apiKey = "2c9d65d5";
 
         ICache<string, Movie> cache = new MovieCache();

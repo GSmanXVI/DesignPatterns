@@ -63,7 +63,7 @@ namespace Proxy
     }
 
     //Proxy
-    class MovieSearch : IMovieSearch
+    class MovieSearchProxy : IMovieSearch
     {
         MovieSearchAPI search = null;
 
@@ -88,7 +88,7 @@ namespace Proxy
     //Director
     class MovieSearchAPI : IMovieSearch
     {
-        readonly string apiUrl = @"http://omdbapi.com/";
+        readonly string apiUrl = @"http://www.omdbapi.com/";
         readonly string apiKey = "2c9d65d5";
 
         public MovieSearchAPI()
@@ -98,6 +98,7 @@ namespace Proxy
 
         public Movie Search(string title)
         {
+            Thread.Sleep(1000);
             var webClient = new WebClient();
             try
             {
@@ -126,7 +127,7 @@ namespace Proxy
     {
         static void Main(string[] args)
         {
-            IMovieSearch movieSearch = new MovieSearch();
+            IMovieSearch movieSearch = new MovieSearchProxy();
 
             while (true)
             {

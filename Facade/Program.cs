@@ -36,12 +36,12 @@ namespace Facade
 
     class TripBooking
     {
-        Random rand = new Random();
+        static private Random rand = new Random();
 
         public double BookTrip(TripType type, string from, string to)
         {
             int distance = rand.Next(100, 5000);
-            Console.WriteLine($"Distance: {distance}km");
+            //Console.WriteLine($"Distance: {distance}km");
 
             switch (type)
             {
@@ -83,7 +83,7 @@ namespace Facade
     //Facade
     class TravelAgency
     {
-        public void BuildTrip(string fromCity, string toCity, int days, HotelType hotelType, TripType tripType, GuideType guideType)
+        public double BuildTrip(string fromCity, string toCity, int days, HotelType hotelType, TripType tripType, GuideType guideType)
         {
             double price = 0;
 
@@ -96,13 +96,15 @@ namespace Facade
             var guideBooking = new GuideBooking();
             price += guideBooking.BookGuide(guideType, days);
 
-            Console.WriteLine("Tour info:");
-            Console.WriteLine($"From: {fromCity}");
-            Console.WriteLine($"To: {toCity}");
-            Console.WriteLine($"Hotel type: {hotelType}");
-            Console.WriteLine($"Trip type: {tripType}");
-            Console.WriteLine($"Guide type: {guideType}");
-            Console.WriteLine($"Total price: {price}");
+            //Console.WriteLine("Tour info:");
+            //Console.WriteLine($"From: {fromCity}");
+            //Console.WriteLine($"To: {toCity}");
+            //Console.WriteLine($"Hotel type: {hotelType}");
+            //Console.WriteLine($"Trip type: {tripType}");
+            //Console.WriteLine($"Guide type: {guideType}");
+            //Console.WriteLine($"Total price: {price}");
+
+            return price;
         }
     }
 
@@ -111,9 +113,13 @@ namespace Facade
         static void Main(string[] args)
         {
             var travelAgency = new TravelAgency();
-            travelAgency.BuildTrip("Baku", "Rome", 5, HotelType.FourStars, TripType.Flight, GuideType.Audio);
+            var price1 = travelAgency.BuildTrip("Baku", "Rome", 5, HotelType.FourStars, TripType.Flight, GuideType.Audio);
+            Console.WriteLine($"Baku - Rome: {price1}");
+
             Console.WriteLine();
-            travelAgency.BuildTrip("Baku", "Sumgait", 3, HotelType.FiveStars, TripType.Bus, GuideType.None);
+
+            var price2 = travelAgency.BuildTrip("Baku", "Sumgait", 3, HotelType.FiveStars, TripType.Bus, GuideType.None);
+            Console.WriteLine($"Baku - Sumgait: {price2}");
         }
     }
 }

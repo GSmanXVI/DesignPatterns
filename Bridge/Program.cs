@@ -1,86 +1,151 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 using System.Xml.Serialization;
 
 namespace Bridge
 {
-    class DataRepository
-    {
-        public List<string> Data { get; set; }
-        public IExporter Exporter { get; set; }
-
-        public DataRepository()
-        {
-            Data = new List<string>();
-        }
-
-        public void Add(string text)
-        {
-            Data.Add(text);
-        }
-
-        public void Remove(int index)
-        {
-            Data.RemoveAt(index);
-        }
-
-        public void Save(string filename)
-        {
-            if (Exporter != null)
-                Exporter.Export(Data, filename);
-            else
-                Console.WriteLine("The exporter was not setted!");
-        }
-    }
-
-    interface IExporter
-    {
-        void Export(List<string> data, string filename);
-    }
-
-    class JsonExporter : IExporter
-    {
-        public void Export(List<string> data, string filename)
-        {
-            var json = JsonConvert.SerializeObject(data);
-            File.WriteAllText($"{filename}.json", json);
-            Console.WriteLine("Saved to json file.");
-        }
-    }
-
-    class XmlExporter : IExporter
-    {
-        public void Export(List<string> data, string filename)
-        {
-            var xs = new XmlSerializer(data.GetType());
-            using (var fs = new FileStream($"{filename}.xml", FileMode.Create))
-            {
-                xs.Serialize(fs, data);
-            }
-            Console.WriteLine("Saved to xml file.");
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            var repository = new DataRepository();
-            repository.Add("Data one");
-            repository.Add("Data two");
-            repository.Add("Data three");
+            //Storage<Contact> contactStorage = new ContactStorage(new XmlSaveLoader<List<Contact>>());
+            //contactStorage.Add(new Contact { Name = "Gleb", Phone = "123123" });
+            //contactStorage.Add(new Contact { Name = "Sabik", Phone = "987987" });
+            //contactStorage.Save();
 
-            repository.Exporter = new JsonExporter();
-            repository.Save("file");
+            Storage<ToDoItem> taskStorage = new ToDoItemStorage(new JsonSaveLoader<List<ToDoItem>>());
+            taskStorage.Add(new ToDoItem { Title = "Feed my cat", Done = true });
+            taskStorage.Add(new ToDoItem { Title = "Do my homework", Done = false });
+            taskStorage.Save();
+        }
+    }
 
-            repository.Exporter = new XmlExporter();
-            repository.Save("file");
+    [Serializable]
+    public class Contact
+    {
+        public string Name { get; set; }
+        public string Phone { get; set; }
+    }
+
+    [Serializable]
+    public class ToDoItem
+    {
+        public string Title { get; set; }
+        public bool Done { get; set; }
+    }
+
+    abstract class Storage<T> where T : class
+    {
+        protected ISaveLoader<List<T>> saveLoader;
+
+        public Storage(ISaveLoader<List<T>> saveLoader)
+        {
+            this.saveLoader = saveLoader;
+        }
+
+        public abstract void Add(T item);
+        public abstract void Save();
+        public abstract void Load();
+    }
+
+    class ContactStorage : Storage<Contact>
+    {
+        public ContactStorage(ISaveLoader<List<Contact>> saveLoader) : base(saveLoader)
+        {
+
+        }
+
+        private List<Contact> contacts = new List<Contact>();
+
+        public override void Add(Contact item)
+        {
+            contacts.Add(item);
+        }
+
+        public override void Load()
+        {
+            contacts = saveLoader.Load("contacts");
+        }
+
+        public override void Save()
+        {
+            saveLoader.Save(contacts, "contacts");
+        }
+    }
+
+    class ToDoItemStorage : Storage<ToDoItem>
+    {
+        public ToDoItemStorage(ISaveLoader<List<ToDoItem>> saveLoader) : base(saveLoader)
+        {
+
+        }
+
+        private List<ToDoItem> toDoItems = new List<ToDoItem>();
+
+        public override void Add(ToDoItem item)
+        {
+            toDoItems.Add(item);
+        }
+
+        public override void Load()
+        {
+            toDoItems = saveLoader.Load("items");
+        }
+
+        public override void Save()
+        {
+            saveLoader.Save(toDoItems, "items");
+        }
+    }
+
+
+
+    interface ISaveLoader<T> where T : class
+    {
+        void Save(T data, string filename);
+        T Load(string filename);
+    }
+
+    class JsonSaveLoader<T> : ISaveLoader<T> where T : class
+    {
+        public T Load(string filename)
+        {
+            filename += ".json";
+            var json = File.ReadAllText(filename);
+            return JsonSerializer.Deserialize<T>(json);
+        }
+
+        public void Save(T data, string filename)
+        {
+            filename += ".json";
+            var json = JsonSerializer.Serialize(data);
+            File.WriteAllText(filename, json);
+        }
+    }
+
+    class XmlSaveLoader<T> : ISaveLoader<T> where T : class
+    {
+        public T Load(string filename)
+        {
+            filename += ".xml";
+            var serializer = new XmlSerializer(typeof(T));
+            using (var fileStream = new FileStream(filename, FileMode.Create))
+            {
+                var data = serializer.Deserialize(fileStream);
+                return data as T;
+            }
+        }
+
+        public void Save(T data, string filename)
+        {
+            filename += ".xml";
+            var serializer = new XmlSerializer(typeof(T));
+            using (var fileStream = new FileStream(filename, FileMode.Create))
+            {
+                serializer.Serialize(fileStream, data);
+            }
         }
     }
 }

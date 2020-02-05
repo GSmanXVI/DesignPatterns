@@ -26,11 +26,11 @@ namespace Composite
             Console.WriteLine("Cannot remove");
         }
 
-        public abstract void Display(int depth);
+        public abstract void Display(int depth = 0);
     }
 
     //Composite
-    class Directory: Component
+    class Directory : Component
     {
         private List<Component> children = new List<Component>();
 
@@ -46,9 +46,9 @@ namespace Composite
             children.Remove(component);
         }
 
-        public override void Display(int depth)
+        public override void Display(int depth = 0)
         {
-            Console.WriteLine(new String('-', depth) + name);
+            Console.WriteLine(new string('-', depth) + name);
 
             foreach (Component component in children)
             {
@@ -62,9 +62,9 @@ namespace Composite
     {
         public File(string name) : base(name) { }
 
-        public override void Display(int depth)
+        public override void Display(int depth = 0)
         {
-            Console.WriteLine(new String('-', depth) + name);
+            Console.WriteLine(new string('-', depth) + name);
         }
     }
 
@@ -81,6 +81,7 @@ namespace Composite
 
             comp.Add(new File("File XA"));
             comp.Add(new File("File XB"));
+
             root.Add(comp);
 
             Component comp2 = new Directory("Folder Y");
@@ -89,8 +90,10 @@ namespace Composite
             comp2.Add(new File("File YB"));
 
             Component comp3 = new Directory("Folder Z");
+
             comp3.Add(new File("File YZA"));
             comp3.Add(new File("File YZB"));
+
             comp2.Add(comp3);
 
             root.Add(comp2);
@@ -98,8 +101,10 @@ namespace Composite
             root.Add(new File("File C"));
 
             File leaf = new File("File D");
+            
             root.Add(leaf);
-            root.Display(0);
+
+            root.Display();
         }
     }
 }

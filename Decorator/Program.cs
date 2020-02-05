@@ -36,28 +36,29 @@ namespace Decorator
     //Decorator
     abstract class Upgrade : Weapon
     {
+        Weapon weapon = null;
+        
         private int accuracy;
+        private int damage;
+        private int capacity;
+
         public override int Accuracy
         {
             get => weapon.Accuracy + accuracy;
             set => accuracy = value;
         }
 
-        private int damage;
         public override int Damage
         {
             get => weapon.Damage + damage;
             set => damage = value;
         }
 
-        private int capacity;
         public override int Capacity
         {
             get => weapon.Capacity + capacity;
             set => capacity = value;
         }
-
-        Weapon weapon = null;
 
         public Weapon SetUpgrade(Weapon weapon)
         {
@@ -67,9 +68,7 @@ namespace Decorator
 
         public Weapon RemoveUpgrade()
         {
-            var temp = weapon;
-            weapon = null;
-            return temp;
+            return weapon;
         }
     }
 
@@ -103,12 +102,15 @@ namespace Decorator
             weapon = upgrade.SetUpgrade(weapon);
             weapon.Info();
 
-            upgrade = new Suppressor();
-            weapon = upgrade.SetUpgrade(weapon);
+            Upgrade upgrade2 = new Suppressor();
+            weapon = upgrade2.SetUpgrade(weapon);
             weapon.Info();
 
-            //weapon = (weapon as Upgrade).RemoveUpgrade();
-            //weapon.Info();
+            if (weapon is Upgrade)
+            {
+                weapon = (weapon as Upgrade).RemoveUpgrade();
+                weapon.Info();
+            }
         }
     }
 }
