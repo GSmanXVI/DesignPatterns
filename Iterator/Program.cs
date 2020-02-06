@@ -24,7 +24,7 @@ namespace Iterator
 
         public IEnumerator GetEnumerator()
         {
-            return new MyIntCollectionEnumerator(this.array);
+            return new MyIntCollectionReverseEnumerator(this.array);
         }
     }
 
@@ -59,7 +59,7 @@ namespace Iterator
     class MyIntCollectionReverseEnumerator : IEnumerator
     {
         public object Current { get; set; }
-        private int position = -1;
+        private int position;
         private readonly int[] array;
 
         public MyIntCollectionReverseEnumerator(int[] array)
@@ -94,6 +94,15 @@ namespace Iterator
             {
                 Console.WriteLine(item);
             }
+
+            //var coll = new MyIntCollection(11, 22, 33, 44, 55);
+            //var enumerator = coll.GetEnumerator();
+            //while (enumerator.MoveNext())
+            //{
+            //    var item = enumerator.Current;
+            //    Console.WriteLine(item);
+            //}
+            //enumerator.Reset();
         }
     }
 }
